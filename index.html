@@ -116,6 +116,7 @@ a:hover > .arrow-dot, .arrow-link:hover .arrow-dot{transform:rotate(45deg)}
 .scard{display:block;text-decoration:none;border-radius:var(--radius-lg);padding:16px;background:var(--card);color:var(--card-ink);transition:transform .25s ease,box-shadow .25s ease}
 .scard:hover{transform:translateY(-3px);box-shadow:0 18px 40px -18px rgba(0,0,0,.45)}
 .scard-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.scard .sub{display:block;margin-top:6px;font-size:.82rem;color:#4A5262}
 .scard h2{font-family:var(--font-body);font-weight:600;font-size:1.05rem;line-height:1.2}
 .scard .arrow-dot{width:36px;height:36px;background:var(--blue);color:#fff}
 .scard .arrow-dot svg{width:16px;height:16px}
@@ -314,6 +315,68 @@ footer .wrap{container-type:inline-size}
   .values li,.contact-list li{grid-template-columns:1fr;gap:4px}
   .team{grid-template-columns:1fr 1fr}
 }
+
+/* ---------- Phone polish ---------- */
+.mbar{display:none}
+@media (max-width:760px){
+  body{font-size:16px}
+  .hero-band{padding-block:10px 28px}
+  .hero{gap:14px}
+  .hero h1{font-size:17cqi;margin-top:0}
+  .hero h1 .kicker{font-size:.68rem;letter-spacing:.12em;margin-bottom:12px}
+  .hero h1 .kicker > span:not(.kdot){display:block}
+  .kdot{display:none}
+  .hero-art{margin-top:4px}
+  .hero-foot{gap:14px;margin-top:4px}
+  .hero-foot p{font-size:.95rem}
+  .cta-group .pill{min-height:50px;font-size:1rem;padding:0 22px}
+  .cta-group .arrow-dot{width:50px;height:50px}
+  .side{grid-template-columns:1fr 1fr;gap:10px}
+  .side .scard:first-child{grid-column:1/-1}
+  .scard{padding:14px;border-radius:18px}
+  .scard h2{font-size:.98rem}
+  .crew{grid-template-columns:1fr}
+  .crew-face{display:none}
+  .scard.dark .logo-tile{display:none}
+  .crew .arrow-dot{margin-top:14px!important}
+  .scard.dark{flex-direction:column;align-items:flex-start;gap:10px}
+  .scard.dark strong{font-size:.95rem}
+  .scard.dark span{font-size:.78rem}
+  .trust ul{padding:18px 0;gap:14px 16px}
+  .trust b{font-size:1.35rem}
+  .trust span{font-size:.84rem}
+  section.block{padding-block:56px}
+  .sec-head{margin-bottom:26px;gap:14px}
+  .sec-head p{font-size:.98rem}
+  .svc{padding:18px 0;gap:6px 16px}
+  .svc h4{font-size:1.25rem}
+  .svc p{font-size:.95rem}
+  .svc .arrow-dot{width:40px;height:40px}
+  .svc-group + .svc-group{margin-top:32px}
+  .pgrid{gap:22px}
+  .proj{gap:10px}
+  .proj-meta{flex-direction:column;gap:2px}
+  .steps li{padding:16px 0}
+  .steps h3{margin:8px 0 4px;font-size:1.15rem}
+  .steps .dur{margin-top:8px}
+  .values li{padding:12px 0}
+  .trades{gap:8px}
+  .trades li{padding:12px}
+  .trades span{font-family:var(--font-body);letter-spacing:0;font-size:.8rem}
+  .county{padding:20px}
+  .city-list span{display:none}
+  .city-list li{padding:10px 0}
+  summary{padding:16px 0;font-size:1rem}
+  .contact-list li{padding:10px 0}
+  form.quote{gap:14px;border-radius:24px}
+  .form-foot .pill{width:100%;justify-content:center}
+  footer{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))}
+  .mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:30;gap:10px;
+    padding:10px max(12px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(12px,env(safe-area-inset-left,0px));
+    background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--line)}
+  .mbar a{flex:1;justify-content:center;min-height:50px}
+  .mbar .call{background:var(--ink);color:var(--paper)}
+}
 </style>
 
 <!-- ============ Reusable line drawings (blueprint style placeholders) ============ -->
@@ -449,7 +512,7 @@ footer .wrap{container-type:inline-size}
       </div>
 
       <div class="hero">
-        <h1><span class="kicker">Kitchen, Bath &amp; Home Remodeling · Los Angeles &amp; Orange County</span>Built Together</h1>
+        <h1><span class="kicker"><span>Kitchen, Bath &amp; Home Remodeling</span><span class="kdot"> · </span><span>Los Angeles &amp; Orange County</span></span>Built Together</h1>
 
         <div class="hero-art">
           <svg viewBox="0 0 600 360" role="img" aria-label="Line drawing of a remodeled kitchen with island and pendant lights" style="color:#fff">
@@ -487,7 +550,7 @@ footer .wrap{container-type:inline-size}
           <a class="scard" href="#process">
             <div class="crew">
               <div>
-                <h2>How We<br>Work</h2>
+                <h2>How We<br>Work</h2><span class="sub">5 clear steps, start to finish</span>
                 <span class="arrow-dot" style="margin-top:22px"><svg><use href="#i-arrow"/></svg></span>
               </div>
               <div class="crew-face"><svg viewBox="0 0 600 340" width="78" aria-hidden="true"><use href="#d-plan"/></svg></div>
@@ -745,6 +808,7 @@ footer .wrap{container-type:inline-size}
   </div>
 </footer>
 
+<nav class="mbar" aria-label="Quick actions"><a class="pill call" href="tel:+19493294923" aria-label="Call (949) 329-4923"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Call Now</a><a class="pill blue" href="#contact">Free Estimate</a></nav>
 <script>
 (function(){
   // Fit footer wordmark to the full width
